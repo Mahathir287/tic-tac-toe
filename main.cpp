@@ -163,6 +163,7 @@ void multiplayer(){
             break;
         }
     }
+}
         
 void compvsplayer()
 {
