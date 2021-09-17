@@ -56,6 +56,28 @@ void playerchoice()
         }
     }
 }
+void player2choice()
+{
+    while(true)
+    {
+        int ch;
+        cout<<"Enter position "<<endl;
+        cin>>ch;
+        ch--;
+        if(ch<0 || ch>8)
+        {
+            cout<<"Invalid position "<<endl;
+        }
+        else if(board[ch]!=' ')
+        {
+            cout<<"Enter unoccupied position "<<endl;
+        }
+        else{
+            board[ch]='O';
+            break;
+        }
+    }
+}
 char winner()
 {
     //checking winner horizontally
@@ -101,6 +123,47 @@ char winner()
         return 'D';
     }
 }
+void multiplayer(){
+    string p1,p2;
+    cout<<"Enter player1 name:";
+    cin>>p1;
+    cout<<"Enter player2 name:";
+    cin>>p2;
+    while(true){
+        system("cls");
+        show_board();
+        if(countb('X')==countb('O'))
+        {
+            playerchoice();
+        }
+        else
+        {
+            player2choice();
+        }
+        char win=winner();
+        if(win=='X')
+        {
+            system("cls");
+            show_board();
+            cout<<p1<<" won"<<endl;
+            break;
+        }
+        else if(win=='O')
+        {
+            system("cls");
+            show_board();
+            cout<<p2<<" won"<<endl;
+            break;
+        }
+        else if(win=='D')
+        {
+            system("cls");
+            show_board();
+            cout<<"match drawn"<<endl;
+            break;
+        }
+    }
+        
 void compvsplayer()
 {
     string name;
@@ -145,6 +208,26 @@ void compvsplayer()
 
 int main()
 {
-    compvsplayer();
+    while(true){
+        system("cls");
+        cout<<"1.Player vs Player"<<endl;
+        cout<<"2.Player vs computer"<<endl;
+        cout<<"3.Exit"<<endl;
+        int op;
+        cin>>op;
+        switch(op)
+        {
+            case 1:
+                multiplayer();
+                break;
+            case 2:
+                compvsplayer();
+                break;
+            case 3:
+                break;
+            default:
+                cout<<"Enter valid option"<<endl;
+        }
+    }
     return 0;
 }
