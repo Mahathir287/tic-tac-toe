@@ -93,7 +93,7 @@ char winner()
     {
         return board[2];
     }
-    if(countb('X')+countb('Y')<9)
+    if(countb('X')+countb('O')<9)
     {
         return 'C';
     }
