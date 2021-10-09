@@ -213,7 +213,6 @@ int main()
         system("cls");
         cout<<"1.Player vs Player"<<endl;
         cout<<"2.Player vs computer"<<endl;
-        cout<<"3.Exit"<<endl;
         int op;
         cin>>op;
         switch(op)
@@ -223,8 +222,6 @@ int main()
                 break;
             case 2:
                 compvsplayer();
-                break;
-            case 3:
                 break;
             default:
                 cout<<"Enter valid option"<<endl;
